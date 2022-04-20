@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "Awesome",
-    "slug": "Awesome",
+    "name": "ccfc",
+    "slug": "ccfc",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/gootders_01.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -16,15 +16,44 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+  
+
+
+
     "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+      "supportsTablet": true,
+      "bundleIdentifier": "com.retrolex.ccfc",
+      "buildNumber":"2",
+      "config": {
+      "googleMapsApiKey": "AIzaSyAGXSUtb0RGrt4V55SXW5ZV9n5Z4xuVd7w"
       }
-    },
+      },
+
+
+
+ 
+      "android": {
+        "permissions": [
+          "ACCESS_FINE_LOCATION"
+      ],
+  
+      "package": "com.retrolex.ccfc",
+  
+        "adaptiveIcon": {
+          "foregroundImage": "./assets/adaptive-icon.png",
+          "backgroundColor": "#FFFFFF"
+        },
+        "config":{
+  "googleMaps":{
+  
+    "apiKey":"AIzaSyAGXSUtb0RGrt4V55SXW5ZV9n5Z4xuVd7w"
+  }
+          
+        }
+      },
+  
+
+  
     "web": {
       "favicon": "./assets/favicon.png"
     }
