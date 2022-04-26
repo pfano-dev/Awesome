@@ -17,7 +17,6 @@ export default function AddStore(){
             <Stack.Screen 
                 name='Store List'
                 component={Home}/>
-            
                <Stack.Screen 
                 name='PrintInfo'
                 component={PrintInfo}/>

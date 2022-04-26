@@ -14,25 +14,25 @@ const PrintInfo = () => {
 
     const route = useRoute();
     const data = route.params;
-    console.log('.....................................',data.data)
+    console.log('.....................................',data.data.prevData)
    
 
 
-   const Owner = "Owner : " + data.data.prevData.prevData.item.item.Owner;
+   const Owner = "Owner : " + data.data.prevData.prevData.prevData.item.item.Owner;
   
-   const Contant ="Contant : " + data.data.prevData.prevData.item.item.Contant;
+   const Contant ="Contant : " + data.data.prevData.prevData.prevData.item.item.Contant;
   
-   const Location ="Location : " + data.data.prevData.prevData.item.item.Location;
+   const Location ="Location : " + data.data.prevData.prevData.prevData.item.item.Location;
   
-   const StoreName ="StoreName : " + data.data.prevData.prevData.item.item.StoreName;
+   const StoreName ="StoreName : " + data.data.prevData.prevData.prevData.item.item.StoreName;
   
-   const Question1 ="Which wholesaler are they linked to? : " + data.data.prevData.prevData.item.item.Question1;
+   const Question1 ="Which wholesaler are they linked to? : " + data.data.prevData.prevData.prevData.item.item.Question1;
   
-   const Question2 ="Do they sell Vodacom products? : " + data.data.prevData.prevData.item.item.Question2;
+   const Question2 ="Do they sell Vodacom products? : " + data.data.prevData.prevData.prevData.item.item.Question2;
   
-   const Question3 ="Do they have product knowledge/training? : " + data.data.prevData.prevData.item.item.Question3;
-   const Question4 ="Do they experience network issues? : " + data.data.prevData.prevData.item.item.Question4;
-   const Question5 ="Do they Rica? : " + data.data.prevData.prevData.item.item.Question5;
+   const Question3 ="Do they have product knowledge/training? : " + data.data.prevData.prevData.prevData.item.item.Question3;
+   const Question4 ="Do they experience network issues? : " + data.data.prevData.prevData.prevData.item.item.Question4;
+   const Question5 ="Do they Rica? : " + data.data.prevData.prevData.prevData.item.item.Question5;
   
 
     const html = 
@@ -80,27 +80,27 @@ tiering Questions
 ${data.data.finalTime}
 </h1>
 <h1 style="font-size: 20px; font-family: Helvetica Neue; font-weight: normal;">
-${data.data.question} br
+Shelf capacity ${data.data.question} br
 
 </h1>
 <h1 style="font-size: 20px; font-family: Helvetica Neue; font-weight: normal;">
-${data.data.question1}br
+Competitor capacity ${data.data.question1}br
 
 </h1>
 <h1 style="font-size: 20px; font-family: Helvetica Neue; font-weight: normal;">
-${data.data.question2}br
+Average store traffic ${data.data.question2}br
 
 </h1>
 <h1 style="font-size: 20px; font-family: Helvetica Neue; font-weight: normal;">
-${data.data.question3}br
+Location type ${data.data.question3}br
 
 </h1>
 <h1 style="font-size: 20px; font-family: Helvetica Neue; font-weight: normal;">
-${data.data.question4}br
+Brand rand value ${data.data.question4}br
 
 </h1>
 <h1 style="font-size: 20px; font-family: Helvetica Neue; font-weight: normal;">
-${data.data.question5}br
+Branding audit ${data.data.question5}br
 </h1>
 
       </body>
@@ -152,12 +152,12 @@ ${data.data.question5}br
 <Text style={{margin:5}}>Do they Rica?{" "} {Question5}</Text>
 <Text style={{margin:5}}>{" "} </Text>
 <Text style={{margin:5}}>{data.data.finalTime}</Text>
-<Text style={{margin:5}}>{data.data.question}</Text>
-<Text style={{margin:5}}>{data.data.question1}</Text>
-<Text style={{margin:5}}>{data.data.question2}</Text>
-<Text style={{margin:5}}>{data.data.question3}</Text>
-<Text style={{margin:5}}>{data.data.question4}</Text>
-<Text style={{margin:5}}>{data.data.question5}</Text>
+<Text style={{margin:5}}>Shelf capacity : {data.data.prevData.question}</Text>
+<Text style={{margin:5}}>Competitor capacity : {data.data.prevData.question1}</Text>
+<Text style={{margin:5}}>Average store traffic:  {data.data.prevData.question2}</Text>
+<Text style={{margin:5}}>Location type : {data.data.prevData.question3}</Text>
+<Text style={{margin:5}}>Brand rand value : {data.data.prevData.question4}</Text>
+<Text style={{margin:5}}>Branding audit : {data.data.prevData.question5}</Text>
 
 <Text style={{margin:35}}></Text>
 

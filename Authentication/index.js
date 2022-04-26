@@ -8,7 +8,17 @@ import { getAuth ,signInWithEmailAndPassword} from 'firebase/auth'
 import { getDatabase, ref, onValue } from 'firebase/database';
 import {ToastAndroid} from 'react-native';
 
+// export const signOut = ({ navigation }) => {
+//      navigation.navigate('signup')
+//   };
 
+//   export const signOut = () => {
+//     getAuth()
+//       .signOut()
+//       .then(() => {
+//         navigation.navigate('signup')
+//       });
+//   };
 
 export default function Loginscreen({ navigation }) {
 
@@ -18,6 +28,11 @@ export default function Loginscreen({ navigation }) {
     })
 
     const [userProfile , setUser] = useState({})
+
+
+ 
+
+
 
     function handleChange(text, eventName) {
         setValues(prev => {

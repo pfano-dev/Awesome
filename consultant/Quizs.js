@@ -61,43 +61,43 @@ const Quizs = () => {
       }, [time]);
     
 
-const finalTime = 'final time is ' + time.hours+ ' : ' +time.minutes  +' : '+time.seconds
-      const [chosenOption, setChosenOption] = useState(''); //will store our current user options
+const finalTime = time.hours+ ' : ' +time.minutes  +' : '+time.seconds
+      const [chosenOption, setChosenOption] = useState('vodacom has majority'); //will store our current user options
       const options = [
         { label: 'Vodacom has majority', value: 'vodacom has majority' },
         { label: 'Vodacom has an even split', value: 'vodacom has an even split' },
         { label: 'Vodacom has minority', value: 'vodacom has minority' },
       ]; //create our options for radio group
 
-      const [chosenOption1, setChosenOption1] = useState(''); //will store our current user options
+      const [chosenOption1, setChosenOption1] = useState('vailable to every competitor'); //will store our current user options
       const options1 = [
         { label: 'Available to every competitor', value: 'vailable to every competitor' },
         { label: 'Available to minority of the competitor', value: 'available to minority of the competitor' },
         { label: 'Available to some or little of the competitor', value: 'available to some or little of the competitor' },
       ]; //create our options for radio group
 
-      const [chosenOption2, setChosenOption2] = useState(''); //will store our current user options
+      const [chosenOption2, setChosenOption2] = useState('over 100 people per day'); //will store our current user options
       const options2 = [
         { label: 'Over 100 people per day', value: 'over 100 people per day' },
         { label: 'Over 60 people per day', value: 'over 60 people per day' },
         { label: 'Below 30 people per day', value: 'Below 30 people per day' },
       ]; //create our options for radio group
 
-      const [chosenOption3, setChosenOption3] = useState(''); //will store our current user options
+      const [chosenOption3, setChosenOption3] = useState('Good'); //will store our current user options
       const options3 = [
         { label: 'Good', value: 'good' },
         { label: 'Not bad', value: 'not bad' },
         { label: 'Bad', value: 'bad' },
       ]; //create our options for radio group
 
-      const [chosenOption4, setChosenOption4] = useState(''); //will store our current user options
+      const [chosenOption4, setChosenOption4] = useState('Over 50k a week of Vodacom items are sold'); //will store our current user options
       const options4 = [
         { label: 'Over 50k a week of Vodacom items are sold', value: 'over 50k a week of Vodacom items are sold' },
         { label: 'Over 30k a week of Vodacom items are sold', value: 'Over 30k a week of Vodacom items are sold' },
         { label: 'Less than 10k a week of Vodacom items are sold', value: 'Less tha 10k a week of Vodacom items are sold' },
       ]; //create our options for radio group
 
-      const [chosenOption5, setChosenOption5] = useState(''); //will store our current user options
+      const [chosenOption5, setChosenOption5] = useState('There is Vodacom branding outside the store, inside the store and by the point of sale 3/3'); //will store our current user options
       const options5 = [
         { label: 'There is Vodacom branding outside the store, inside the store and by the point of sale 3/3', value: 'there is vodacom branding outside the store, inside the store and by the point of sale 3/3' },
         { label: 'There is Vodacom branding on 2 of the 3 options in and around the store', value: 'There is Vodacom branding on 2 of the 3 options in and around the store' },
@@ -105,15 +105,12 @@ const finalTime = 'final time is ' + time.hours+ ' : ' +time.minutes  +' : '+tim
       ]; //
      
      
-
-
-
-const question = 'Shelf capacity: ' + chosenOption
-const question1 = 'Competitor capacity: ' + chosenOption1
-const question2 = 'Average store traffic: ' + chosenOption2
-const question3 = 'Location type: ' + chosenOption3
-const question4 = 'Brand rand value: ' + chosenOption4
-const question5 = 'Branding audit: ' + chosenOption5
+const question =   chosenOption
+const question1 =   chosenOption1
+const question2 = chosenOption2
+const question3 = chosenOption3
+const question4 =  chosenOption4
+const question5 =  chosenOption5
 
     function storeHighScore(
         question,
@@ -137,7 +134,7 @@ const question5 = 'Branding audit: ' + chosenOption5
         FinalTime : finalTime
          });
        
-         navigation.navigate('CheckOut',{prevData,question,
+         navigation.navigate('Brand',{prevData,question,
           question1,
           question2,
           question3,

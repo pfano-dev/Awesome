@@ -8,9 +8,9 @@ import QuestionStack from './Questions/QuestionStack';
 import DetailsScreen from './Tracking/Tracking';
 
 //Screen names
-const homeName = "Data";
+const homeName = "info";
 const detailsName = "Tracking";
-const settingsName = "Questions";
+const settingsName = "Data";
 
 const Tab = createBottomTabNavigator();
 
@@ -31,7 +31,7 @@ export default function MainContainer() {
               iconName = focused ? 'list' : 'list-outline';
 
             } else if (rn === settingsName) {
-              iconName = focused ? 'settings' : 'settings-outline';
+              iconName = focused ? 'settings' : 'bar-chart-sharp';
             }
 
             // You can return any component that you like here!

@@ -8,7 +8,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from '@react-navigation/native';
-
+import RadioForm from 'react-native-simple-radio-button';
 
 export default function AdditionalRQ(){
 
@@ -16,15 +16,30 @@ export default function AdditionalRQ(){
 
     const prevData = route.params;
 
-    console.log(prevData)
-    console.log("this is data....",prevData.contant);
+    console.log("............",prevData)
+    console.log("this is data",prevData.contant);
 
     const contant = prevData.contant;
     const storeName = prevData.storeName;
     const location = prevData.location;
     const owner =prevData.owner;
+    const names =prevData.names;
+    const value =prevData.value;
 
-  
+    const [chosenOption, setChosenOption] = useState('Good'); //will store our current user options
+    const options = [
+      { label: 'Good', value: 'Good' },
+      { label: 'Average', value: 'Average' },
+      { label: 'Bad', value: 'Bad' },
+    ]; //create our options for radio group
+
+    const [chosenOption1, setChosenOption1] = useState('Good'); //will store our current user options
+    const options1 = [
+      { label: 'Good', value: 'Good' },
+      { label: 'Average', value: 'Average' },
+      { label: 'Bad', value: 'Bad' },
+    ]; //create our options for radio group
+
     const navigation = useNavigation();
 
     function storeHighScore(
@@ -37,7 +52,10 @@ export default function AdditionalRQ(){
          storeName,
          location,
          owner,
-       
+         names,
+         value,
+         chosenOption,
+         chosenOption1
          ) {
         const db = getDatabase();
         const reference = ref(db, 'Stores/');
@@ -51,6 +69,11 @@ export default function AdditionalRQ(){
             StoreName : storeName,
             Location : location,
             Owner : owner,
+            names :  names,
+            value :value,
+            chosenOption : chosenOption,
+            chosenOption1 : chosenOption1
+            
           });
           navigation.navigate('Welcome',{  question1,
             question2,
@@ -60,7 +83,12 @@ export default function AdditionalRQ(){
             contant,
             storeName,
             location,
-            owner,});
+            owner,
+            names,
+            value,
+            chosenOption,
+            chosenOption1
+          });
     }
 
 
@@ -117,12 +145,44 @@ export default function AdditionalRQ(){
                     placeholder='Type here...' onChangeText={(text) => setQuestion5(text)}  style={styless.textInput}  />
                     <View>
 
+                    <View style={{width:'100%',padding:10}}>
+
+<Text style={{marginVertical:19,fontSize: 16,}}>Network coverage inside the store?</Text>
+      <RadioForm
+        radio_props={options}
+        initial={0} //initial value of this group
+        onPress={(value) => {
+          setChosenOption(value);
+        }} //if the user changes options, set the new value
+      />
+
+</View>
+
+<View style={{width:'100%',padding:10}}>
+
+<Text style={{marginVertical:19,fontSize: 16,}}>Network outside the store?</Text>
+      <RadioForm
+        radio_props={options1}
+        initial={0} //initial value of this group
+        onPress={(value) => {
+          setChosenOption1(value);
+        }} //if the user changes options, set the new value
+      />
+
+</View>
+
+ 
+
                     <Button style={styles.button} onPress={() => storeHighScore(question1, question2,
                  question3, question4, 
                  question5 ,   contant,
          storeName,
          location,
          owner,
+         names,
+         value,
+         chosenOption,
+         chosenOption1
        )} title='Submit'/>
 
                     </View>

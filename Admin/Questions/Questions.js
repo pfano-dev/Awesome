@@ -1,14 +1,21 @@
 import React,{useEffect, useState} from 'react';
 import {StyleSheet, View, Text , SectionList, Image, Pressable,Button, Platform,FlatList,RefreshControl, } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { getDatabase, ref, onValue, push, set } from 'firebase/database';
-
+import * as Print from 'expo-print';
+// import { shareAsync } from 'expo-sharing';
+import XLSX from 'xlsx';
+import * as FileSystem from 'expo-file-system';
+import * as Sharing from 'expo-sharing';
 
 export default function Home({navigation}){
   var data = []
   var sec = [];
 
+  useEffect(() => {
+    sec.push({title: '',data})
+  }, []);
 
 
   const [refreshing, setRefreshing] = useState(false);
@@ -23,41 +30,37 @@ export default function Home({navigation}){
    
   const db = getDatabase();
 // Retrieve new posts as they are added to our database
-  const dbRef = ref(db, 'Checkout/');
+  const dbRef = ref(db, 'exel/');
 
   onValue(dbRef, (snapshot) => {
     snapshot.forEach((childSnapshot) => {
       const childKey = childSnapshot.key;
       const childData = childSnapshot.val();
-      data.push({key: childKey, item: childData})
+      data.push(childData)
     });
   });
   sec.push({title: '',data})
 
-  useEffect(() => {
-    sec.push({title: '',data})
-  }, []);
 
  
-
-
+const number = data.length
+console.log(number)
   const Card = ({ty, index,info}) => {
-    console.log(".................fffffffffffffffff",ty.item.prevDatas)
-    const data =ty.item.prevDatas
+  
+   
     return (
       <View>
         <TouchableOpacity
         style={{margin:15,backgroundColor:'white'}}
-        onPress={()=>{navigation.navigate("QuestionView",{data})}}
         >
           <View style={{width:'100%',alignItems:'center'}}>
-          <Text style={{fontSize:20,fontWeight:'bold'}}>{ty.item.prevData.StoreName}</Text>
+          <Text style={{fontSize:20,fontWeight:'bold'}}>{ty.StoreName}</Text>
           </View>
        
        <View style={{padding:10}}>
-       <Text>Location : {ty.item.prevData.Location}</Text>
-        <Text>Owner : {ty.item.prevData.Owner}</Text>
-        <Text>Contact : {ty.item.prevData.Contant}</Text>
+       <Text>Location : {ty.Location}</Text>
+        <Text>Owner : {ty.Owner}</Text>
+        <Text>Contact : {ty.Contant}</Text>
        
        </View>
 
@@ -69,9 +72,52 @@ export default function Home({navigation}){
     )
   }
 
-    return(
-      <View style={styles.container}>
 
+
+
+console.log('hellow data...............',data)
+var ws = XLSX.utils.json_to_sheet(data);
+var wb = XLSX.utils.book_new();
+XLSX.utils.book_append_sheet(wb, ws, "Cities");
+const wbout = XLSX.write(wb, {
+  type: 'base64',
+  bookType: "xlsx"
+});
+const uri = FileSystem.cacheDirectory + 'cities.xlsx';
+console.log(`Writing to ${JSON.stringify(uri)} with text: ${wbout}`);
+const print = async () => {
+await FileSystem.writeAsStringAsync(uri, wbout, {
+  encoding: FileSystem.EncodingType.Base64
+});
+}
+const printTo = async () => {
+await Sharing.shareAsync(uri, {
+  mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+  dialogTitle: 'MyWater data',
+  UTI: 'com.microsoft.excel.xlsx'
+});
+}
+
+
+const all =()=>{
+  print()
+  printTo()
+}
+
+
+
+
+    return(
+   
+      <View style={styles.container}
+    
+      >
+   <ScrollView
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }
+      style={{height:200}}
+      >
       <View style={styles.sectionHeader}>
       <Image style={styles.img} source={require('../../assets/gootders_03.png')} />
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -81,19 +127,20 @@ export default function Home({navigation}){
           </View>
       </View>
   </View>
-
-
-<FlatList
+        </ScrollView>
+        <View style={{padding:20, }}><Text style={{fontSize:25, fontWeight:'bold'}}>{number} {number== 0  ?" item" : " items"} </Text></View>
+  <Button title='open excel' onPress={all}/>
+       <FlatList
               data={data}
               keyExtractor={({ key }) => key}
               renderItem={({item, index}) => <Card  ty={item} index={index} />}
               refreshControl={
                 <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
               }
-            /> 
-
+            />  
 
   </View>
+
     );
 }
 

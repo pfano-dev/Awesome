@@ -9,6 +9,7 @@ import AdditionalRQ from './AdditionalRQ'
 import StoreList from './StoreList';
 import Quizs from './Quizs';
 import CheckOut from './CheckOut';
+import Brand from './Brand';
 
 
 const Stack = createNativeStackNavigator();
@@ -18,18 +19,18 @@ export default function ConsultedStack(){
             <Stack.Screen 
                 name='Welcome'
                 component={Welcome}/>
-            <Stack.Screen 
-                name='Quiz'
-                component={Quiz}/>
-
-     <Stack.Screen 
-                name='Quizs'
-                component={Quizs}/>
+        
 
             <Stack.Group screenOptions={{presentation: 'modal'}}>
+
                 <Stack.Screen 
                     name='CheckIn'
                     component={Checkin}/>
+
+<Stack.Screen 
+                name='Quizs'
+                component={Quizs}/>
+
                     <Stack.Screen 
                     name='NewStore'
                     component={NewStore}/>
@@ -42,6 +43,11 @@ export default function ConsultedStack(){
                 <Stack.Screen 
                     name='CheckOut'
                     component={CheckOut}/>
+                <Stack.Screen 
+                    name='Brand'
+                    component={Brand}/>
+
+
             </Stack.Group>
             
         </Stack.Navigator>

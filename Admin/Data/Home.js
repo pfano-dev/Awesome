@@ -1,15 +1,25 @@
 import React,{useEffect, useState} from 'react';
-import {StyleSheet, View, Text , SectionList, Image, Pressable,Button, Platform,FlatList,RefreshControl, } from 'react-native';
+import {StyleSheet,BackHandler, View, Text , SectionList, Image, Pressable,Button, Platform,FlatList,RefreshControl, } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { getDatabase, ref, onValue, push, set } from 'firebase/database';
+import {ToastAndroid} from 'react-native';
+import { getAuth ,createUserWithEmailAndPassword} from 'firebase/auth'
+// import {signOut} from '../../Authentication/index';
 
 
 export default function Home({navigation}){
   var data = []
   var sec = [];
 
-
+  
+  // const signOuto = () => {
+  //   getAuth()
+  //     .signOut()
+  //     .then(() => {
+  //      alert(logout)
+  //     });
+  // };
 
   const [refreshing, setRefreshing] = useState(false);
   
@@ -38,7 +48,6 @@ export default function Home({navigation}){
     sec.push({title: '',data})
   }, []);
 
- 
 
 
   const Card = ({ty, index,info}) => {
@@ -78,6 +87,8 @@ export default function Home({navigation}){
           <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
               <Text style={styles.subText}>Hello, </Text>
               <Text style={styles.text}> Admin</Text>
+              {/* <Text style={{fontSize:20, fontWeight:'bold', marginLeft:90}} onPress={()=> signOuto()}> Log out</Text> */}
+
           </View>
       </View>
   </View>
