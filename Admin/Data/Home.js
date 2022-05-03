@@ -13,13 +13,9 @@ export default function Home({navigation}){
   var sec = [];
 
   
-  // const signOuto = () => {
-  //   getAuth()
-  //     .signOut()
-  //     .then(() => {
-  //      alert(logout)
-  //     });
-  // };
+  const signOuto = () => {
+navigation.replace('Login')
+  };
 
   const [refreshing, setRefreshing] = useState(false);
   
@@ -87,7 +83,7 @@ export default function Home({navigation}){
           <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
               <Text style={styles.subText}>Hello, </Text>
               <Text style={styles.text}> Admin</Text>
-              {/* <Text style={{fontSize:20, fontWeight:'bold', marginLeft:90}} onPress={()=> signOuto()}> Log out</Text> */}
+              <Text style={{fontSize:20, fontWeight:'bold', marginLeft:150}} onPress={()=> signOuto()}> Log out</Text>
 
           </View>
       </View>

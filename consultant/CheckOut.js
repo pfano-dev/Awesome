@@ -168,7 +168,37 @@ const prevData =prevDatas.prevData.prevData.prevData.item.item
                     </View>
 
                 </View>
+             
             </View>
+
+            <ScrollView>
+                  
+               
+<View style={{padding:20}}>
+<Text style={{fontSize:25, fontWeight:'bold',marginVertical:20}}>Confirm</Text>
+<Text style={{marginVertical:2}}>Time Date : {Time_Date}</Text>
+<Text  style={{marginVertical:2}}>CCFC Name Surname : {CCFC_Name_Surname}</Text>
+<Text  style={{marginVertical:2}}>Area : {Area}</Text>
+<Text  style={{marginVertical:2}}>Contant : {Contant}</Text>
+<Text  style={{marginVertical:2}}>Location : {Location}</Text>
+<Text  style={{marginVertical:2}}>Owner : {Owner}</Text>
+<Text  style={{marginVertical:2}}>StoreName : {StoreName}</Text>
+<Text  style={{marginVertical:2}}>StoreName : {StoreName}</Text>
+<Text  style={{marginVertical:2}}>which wholesaler are they linke_to : {which_wholesaler_are_they_linke_to}</Text>
+<Text  style={{marginVertical:2}}>do they have product knowledge training : {do_they_have_product_knowledge_training}</Text>
+<Text  style={{marginVertical:2}}>do they experience network issues : {do_they_experience_network_issues}</Text>
+<Text  style={{marginVertical:2}}>do they Rica : {do_they_Rica}</Text>
+<Text  style={{marginVertical:2}}>network Coverage Inside the_store : {network_Coverage_Inside_the_store}</Text>
+<Text  style={{marginVertical:2}}>network Outside the store : {network_Outside_the_store}</Text>
+<Text  style={{marginVertical:2}}>time taken : {time_taken}</Text>
+<Text  style={{marginVertical:2}}>shelf capacity : {shelf_capacity}</Text>
+<Text  style={{marginVertical:2}}>competitor capacity : {competitor_capacity}</Text>
+<Text  style={{marginVertical:2}}>average store traffic : {average_store_traffic}</Text>
+<Text  style={{marginVertical:2}}>location type : {location_type}</Text>
+<Text  style={{marginVertical:2}}>brand rand value : {brand_rand_value}</Text>
+<Text  style={{marginVertical:2}}>branding audit : {branding_audit}</Text>
+<Text  style={{marginVertical:2}}>branding Requirements : {branding_Requirements}</Text>
+</View>
 
 
             <View style={styles.container}>
@@ -188,7 +218,7 @@ const prevData =prevDatas.prevData.prevData.prevData.item.item
                     </TouchableOpacity>
         
             </View>
-         
+            </ScrollView>
         </View>
     );
 }

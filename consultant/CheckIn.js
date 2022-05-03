@@ -89,8 +89,8 @@ console.log(".......data.................ff",prevData)
     // })
     //const [storeName, setStoreName] = useState(store.StoreName);
     return(
-        <View style={styles.container}>
-            <Image style={styles.img} source={require('../assets/gootders_03.png')} />
+        <View style={[styles.container,{marginTop:30}]}>
+            <Image style={[styles.img,{marginTop:30}]} source={require('../assets/gootders_03.png')} />
             <Ionicons name="md-home" style={styles.icon} size={50} color={'#ccc'}/>
             <Text style={{fontSize: 25, fontWeight: '700',padding:10, alignSelf:'center'}}>{prevData.item.item.StoreName}</Text>           
             

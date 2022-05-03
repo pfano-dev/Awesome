@@ -51,6 +51,7 @@ const fun =()=>{
       setSel4('Chromo deck')
       console.log(isSel4)
     }
+    alert('saved')
   
     }
   

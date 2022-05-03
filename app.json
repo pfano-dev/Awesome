@@ -4,7 +4,7 @@
     "slug": "ccfc",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icons.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -22,8 +22,8 @@
 
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.retrolex.ccfc",
-      "buildNumber":"2",
+      "bundleIdentifier": "com.retrolex.ccfcs",
+      "buildNumber":"3",
       "config": {
       "googleMapsApiKey": "AIzaSyAGXSUtb0RGrt4V55SXW5ZV9n5Z4xuVd7w"
       }
@@ -37,7 +37,7 @@
           "ACCESS_FINE_LOCATION"
       ],
   
-      "package": "com.retrolex.ccfc",
+      "package": "com.retrolex.ccfcs",
   
         "adaptiveIcon": {
           "foregroundImage": "./assets/adaptive-icon.png",

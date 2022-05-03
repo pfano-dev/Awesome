@@ -4,7 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import Index from './index'
 import ConsultedStack from '../consultant/Stack'
 import MainContainer from '../Admin/MainContainer'
-import SignUpScreen from './sign-up'
+import SignUpScreen from './sign-up';
+import Home from '../Admin/Data/Home';
+import Welcome from '../consultant/Welcome';
+
 const Stack = createStackNavigator();
 
 export default function AuthStack(){
@@ -23,6 +26,15 @@ export default function AuthStack(){
                 <Stack.Screen 
                     name='Admin'
                     component={MainContainer}/>
+
+                 <Stack.Screen 
+                    name='Home'
+                    component={Home}/>
+
+                 <Stack.Screen 
+                    name='Welcome'
+                    component={Welcome}/>
+
             </Stack.Navigator>
         </NavigationContainer>
     );

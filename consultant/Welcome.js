@@ -12,6 +12,12 @@ export default function Welcome({navigation}){
 
   const prevData = route.params;
 
+
+
+  const signOuto = () => {
+    navigation.replace('Login')
+      };
+
   console.log(prevData)
   console.log("..........................................this is data....",prevData);
 
@@ -107,6 +113,7 @@ const onRefresh = async () => {
                     <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
                         <Text style={styles.subText}>Hello, </Text>
                         <Text style={styles.text}> consultant</Text>
+                        
                     </View>
                     <TouchableOpacity style={styles.btn}  
                    onPress={() =>  navigation.navigate('NewStore')}
@@ -118,6 +125,7 @@ const onRefresh = async () => {
                         </Text>
                     </TouchableOpacity>
                 </View>
+                <Text style={{fontSize:20, fontWeight:'bold', marginLeft:150,position:'absolute',top:55,right:25}} onPress={()=> signOuto()}> Log out</Text>
             </View>
            
             <View style={styles.container}>
